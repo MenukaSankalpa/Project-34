@@ -11,6 +11,31 @@ root.geometry("900x450+200+200")
 root.resizable(False, False)
 root.configure(bg="#305065")
 
+
+engine = pyttsx.init()
+
+def speaknow():
+    text = text_area.get(1.0, END)
+    gender = gender_combobox.get()
+    speed = speed_combobox.get()
+    voices = engine.getProperty('Voices')
+    
+    def setvoice():
+        if (gender == 'Male'):
+            engine.setProperty('voice', voices[0].id)
+            engine.say(text)
+            engine.runAndWait()
+            
+        else:
+            engine.setProperty('voice', voices[1].id)
+            engine.say(text)
+            engine.runAndWait()
+            
+            
+def download():
+    print()            
+        
+
 #icon
 image_icon =PhotoImage(file="speak.png") 
 root.iconphoto(False, image_icon)
