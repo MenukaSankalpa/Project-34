@@ -28,10 +28,24 @@ Label(Top_frame, text="TEXT TO SPEECH", font="arial 20 bold", bg="white", fg="bl
 text_area = Text(root, font="Robot 20", bg="white", relief=GROOVE, wrap=WORD)
 text_area.place(x=10, y=150, width=500, height=250)
 
+Label(root, text="Voice", font="arial 15 bold", bg="#305065", fg='white').place (x=580, y=160)
+Label(root, text="Speed", font="arial 15 bold", bg="#305065", fg='white').place (x=760, y=160)
+
 gender_combobox = Combobox(root, values=['Male', 'Female'], font='arial 14', state='r', width=10)
 gender_combobox.place(x=550, y=200)
+gender_combobox.set('Male')
 
 speed_combobox = Combobox(root, values=['Fast', 'Normal', 'Slow'], font='arial 14', state='r', width=10)
 speed_combobox.place(x=730, y=200)
+speed_combobox.set('Normal')
+
+
+imageicon = PhotoImage(file="speak.png")
+btn=Button(root, text="Speak", compound=LEFT, image=imageicon, width=130, font="arial 14 bold", command=speaknow)
+btn.place(x=550, y=280)
+
+imageicon2 = PhotoImage(file="download.png")
+save=Button(root, text="Speak", compound=LEFT, image=imageicon2, width=130, bg="#39c790", font="arial 14 bold", command=download)
+save.place(x=730, y=280)
 
 root.mainloop()
