@@ -12,13 +12,13 @@ root.resizable(False, False)
 root.configure(bg="#305065")
 
 
-engine = pyttsx.init()
+engine = pyttsx3.init()
 
 def speaknow():
     text = text_area.get(1.0, END)
     gender = gender_combobox.get()
     speed = speed_combobox.get()
-    voices = engine.getProperty('Voices')
+    voices = engine.getProperty('voices')
     
     def setvoice():
         if (gender == 'Male'):
@@ -26,11 +26,25 @@ def speaknow():
             engine.say(text)
             engine.runAndWait()
             
+            
         else:
             engine.setProperty('voice', voices[1].id)
             engine.say(text)
             engine.runAndWait()
-            
+    
+    if (text):
+        if (speed == "Fast"):
+            engine.setProperty('rate', 250)
+            setvoice()
+        elif (speed == 'Normal'):
+            engine.setProperty('rate', 150)
+            setvoice()
+        else:
+            engine.setProperty('rate', 60)
+            setvoice()    
+                
+def download():
+    print()      
             
 def download():
     print()            
